@@ -1,0 +1,331 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    background-color:rgba(237, 235, 235, 0);
+    z-index: -1;
+}
+
+.header{
+    height: 200px;
+    width: 100%;
+    background-color: royalblue;
+  
+}
+.header h1{
+    text-align: center;
+}
+
+.input-grp{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    gap: 15px;
+}
+
+.input-grp input{
+    padding: 10px 25px;
+    width: 50%;
+    border-radius: 7px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    text-transform: capitalize;
+    font-weight: 400;
+}
+.input-grp button{
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    color: rgb(1, 0, 0);
+    font-weight: 600;
+    cursor: pointer;
+    background-color: #60f30c;
+    font-size: 15px;
+    transition-duration: 0.5s;
+}
+.input-grp button:hover{
+    background-color: rgb(0, 255, 0);
+    color: #100741;
+    font-weight: 600
+}
+
+.box{
+    height: auto;
+    margin: 0 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:whitesmoke;
+    border: 5px solid rgba(180, 180, 180, 0.06);
+}
+.boxBtn{
+    display: block;
+    margin-left: auto;
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(234, 47, 5);
+    color: #fff;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    transition: background-color 1s;
+}
+.boxBtn:hover{
+    background-color: red;
+}
+.box ul{
+    list-style: none;
+    width: 100%;
+    margin: 0 30px;
+    
+}
+.box ul >li{
+    display: flex;
+    justify-content: space-between;
+    padding:15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 2px solid rgb(171, 169, 169);
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 7px;
+    color: red;
+    font-size: 20px;
+    transition: background-color 0.5s;
+}
+.box ul>li:hover{
+    background-color: rgba(39, 15, 101, 0.937);
+    font-weight: 900;
+    color: white;
+    /* color: black; */
+}
+
+
+.modal
+{
+    user-select: none;
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.344);
+    backdrop-filter: blur(5px);
+    display: grid;
+    place-items: center;
+    z-index: 10;
+    text-align: center;
+    display: none;
+    transition: all;
+    transition-duration:0.7s;
+    transition-timing-function:ease-in;
+    transform-origin: center;
+}
+
+.modal .modal-content{
+    background-color: rgb(250, 253, 255);
+    height: 200px;
+    width: 400px;
+    border:  2px solid rgb(190, 187, 187);
+    position: relative;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+}
+.modal-content .modal-header{
+    display: flex;
+    font-size: 20px;
+    justify-content:space-around;
+    align-items: center;
+    width: 100%;
+    background-color: rgba(5, 97, 235, 0.586);
+    border-bottom: 10px solid whitesmoke;
+}
+.modal-header>h1{
+    padding-left: 25px;
+}
+.modal-header>span{
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.modal-txt{
+   display: flex;
+   width: 100%;
+   margin-top: 20px;
+   justify-content: center;
+   align-items: center;
+   color: royalblue;
+   font-weight: 900;
+   font-size: 30px;
+   
+}
+
+.modal-txt>span{
+    background-color:#b06161;
+    margin-left: 7px;
+    border: 2px solid black;
+    border-radius: 50%;
+    animation: blur 0.5s ease-in-out infinite;
+}
+@keyframes blur {
+    0%{
+        background-color: red;
+    }
+    100%{
+        background-color: rgb(225, 222, 220);
+    }
+}
+.modal-footer{
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.modal-footer button{
+    width: 200px;
+    padding: 15px;
+    border: none;
+    border-radius:5px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-in-out;
+}
+.modal-footer button:first-child:hover{
+    background-color: rgb(112, 247, 97);
+}
+.modal-footer button:last-child:hover{
+    background-color: rgb(237, 111, 111);
+}
+.modal-footer button:first-child{
+    border: 3px solid green;
+    background-color: lightgreen;
+    color: rgb(8, 97, 8);
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.modal-footer button:last-child{
+    border: 3px solid orangered;
+    background-color: lightcoral;
+    color: rgb(85, 4, 4);
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.hide{
+    opacity: 0;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    transition: all;
+    transition-duration: 0.8s;
+    transition-timing-function: ease-in-out;
+}
+
+
+.modal-alert{
+    height: 50px;
+    margin: 0 50px;
+    background-color: orangered;
+    font-size: 16px;
+    color: white;
+    font-weight:bold;
+    padding: 5px 25px;
+    text-align: start;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+   opacity: 0;
+}
+.modalAnime{
+    
+    animation: alert 2s ease-in-out  1 ;
+    animation-fill-mode: forwards;
+    overflow: hidden;
+    word-break:keep-all;
+}
+
+@keyframes alert {
+    0%{
+        opacity: 1;
+    }
+    100%{
+        width: auto;
+        opacity: 0;
+    }
+}
+
+
+
+/* feedback page */
+
+
+.box form{
+    margin-top: 20px;
+    width: 100%;
+    padding: 30px;
+    background-color: rgb(255, 254, 254);
+    font-weight: 600;
+    font-size: 18px;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.box div>input,textarea{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 3px solid rgb(210, 202, 202);
+    border-radius: 5px;
+    background-color: #fff;
+}
+.box div>input,textarea:focus{
+    outline: none;
+}
+.box .radioBtn{
+    display: flex;
+    /* justify-content: center; */
+   gap: 10px;
+}
+.box .radioBtn>input{
+    width: fit-content;
+    height: 20px;
+ 
+}
+.box .check{
+    width: 100%;
+    display: flex;
+    margin:10px 0px;
+}
+.box .check>input{
+    height: 20px;
+    width: fit-content;
+    margin-right:10px;
+}
+
+.box div>button{
+    display: block;
+    margin: auto;
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    background-color: royalblue;
+    cursor: pointer;
+}

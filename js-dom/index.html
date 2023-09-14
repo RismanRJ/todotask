@@ -1,0 +1,58 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do-List</title>
+    <!-- ========== Start external styling ========== -->
+        <link rel="stylesheet" href="./style.css">
+    <!-- ========== End external styling ========== -->
+</head>
+<body>
+    
+    <div class="header">
+        <h1>My-to-do-List⚡</h1>
+        <a href="./feedback.html">feedback</a>
+        <div class="input-grp">
+            <input type="search" placeholder="enter your Task">
+            <button type="submit">Submit</button>
+        </div>
+    </div>
+    <button class="boxBtn box">clear all <span>🗑️</span></button>
+    <div class="box">
+       <ul>
+        <!-- <li onclick=Alert(event)><p >Wake up at 5'o clock</p><span onclick=removeitem(event)>✖️</span></li>
+        <li onclick=Alert(event)><p >Wake up at 6'o clock</p><span onclick=removeitem(event)>✖️</span></li>
+        <li onclick=Alert(event)><p >Wake up at 7'o clock</p><span onclick=removeitem(event)>✖️</span></li>
+        <li onclick=Alert(event)><p >Wake up at 8'o clock</p><span onclick=removeitem(event)>✖️</span></li> -->
+        
+       </ul>
+    </div>
+
+    <div class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1>My-to-do-List⚡</h1>
+                <span id="modaldltBtn">&#10006;</span>
+            </div>
+            
+            <div class="modal-txt">
+                <p>Wake up at 5'o clock</p>
+                <span>⏰</span>
+            </div>
+            <div class="modal-footer">
+                <button id="completeBtn">Task Completed✅</button>
+                <button type="button" id="incompleteBtn">Task incompleted❌</button>
+            </div>
+        </div>
+        
+    </div>
+    <div class="modal-alert">
+        <p></p>
+    </div>
+
+
+    <!-- ========== Start js links ========== -->
+    <script src="./main.js"></script>
+    <!-- ========== End js links ========== -->
+</body>
+</html>

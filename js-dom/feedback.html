@@ -1,0 +1,51 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do-List</title>
+    <!-- ========== Start external styling ========== -->
+        <link rel="stylesheet" href="./style.css">
+    <!-- ========== End external styling ========== -->
+</head>
+<body>
+    
+    <div class="header">
+        <h1>My-to-do-List⚡</h1>
+        <a href="./index.html">Home</a>
+    </div>
+    <div class="box">
+         <form name="feedbackForm">
+            <div>
+                <input type="text" placeholder="Enter your name" name="Username">
+            </div>
+            <div class=" radioBtn">
+                <input type="radio" name="type" value="good" id="good"><label for="good">Good</label>
+                <input type="radio" name="type" value="good" id="Average"><label for="Average">Average</label>
+                <input type="radio" name="type" value="good" id="Bad"><label for="Bad">Bad</label>
+            </div>
+            <div>
+                <input type="email" name="userEmail" placeholder="you@awsemoe.com">
+            </div>
+            <div>
+                <textarea name="userfeedback" id="userfeedback"  rows="5"></textarea>
+            </div>
+            <div class="check">
+                <input type="checkbox" name="terms" id="terms">
+                <label for="terms">I agree to the <a href="#" class="checklabel">terms and conditions</a></label>
+            </div>
+            <div>
+               <button name="submitBtn">Submit</button>
+            </div>
+         </form>
+
+
+    </div>
+
+
+
+
+    <!-- ========== Start js links ========== -->
+    <script src="./feedback.js"></script>
+    <!-- ========== End js links ========== -->
+</body>
+</html>
