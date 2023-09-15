@@ -17,6 +17,7 @@ input.addEventListener('keypress',(event)=>{
             alert("Enter a valid task")
         else
             add(input.value)
+            localStorage.setItem("todoTasks",JSON.stringify([...JSON.parse(localStorage.getItem('todoTasks')||'[]'),{todotask:input.value}]))
             input.value=''
 
     }
@@ -30,8 +31,27 @@ inputBtn.addEventListener('click',(event)=>{
             alert("Enter a valid task")
     else
         add(input.value)
-
+        localStorage.setItem("todoTasks",JSON.stringify([...JSON.parse(localStorage.getItem('todoTasks')||'[]'),{todotask:input.value}]))
     input.value=''
+})
+
+
+document.addEventListener('DOMContentLoaded',()=>{
+    const fetchedLists=[...JSON.parse(localStorage.getItem('todoTasks'))]
+    fetchedLists.forEach((val)=>{
+        todoContainer[1].style.display="flex"
+        let p=document.createElement('p')
+        let li = document.createElement('li')
+        let span= document.createElement('span')
+        p.textContent=val.todotask
+        span.textContent='✖️'
+        li.append(p)
+        li.append(span)
+        span.setAttribute('onclick',"removeitem(event)")
+        todobox.append(li)
+        li.setAttribute('onclick','Alert(event)')
+         list=[...todo]
+    })
 })
 
 
@@ -47,13 +67,20 @@ function add(val){
     span.setAttribute('onclick',"removeitem(event)")
     todobox.append(li)
     li.setAttribute('onclick','Alert(event)')
-    // console.log(todo);
      list=[...todo]
 }
 
 
 function removeitem(event){
-    event.target.parentNode.remove()
+     event.target.parentNode.remove()
+    const fetchedLists=[...JSON.parse(localStorage.getItem('todoTasks'))]
+    fetchedLists.forEach(val=>{
+        if(val.todotask==event.target.parentNode.children[0].innerText){
+            fetchedLists.splice(fetchedLists.indexOf(val),1)
+        }
+    })
+  localStorage.setItem('todoTasks',JSON.stringify(fetchedLists))
+
 }
 
 
@@ -67,7 +94,6 @@ if(event.target.tagName.toLowerCase()=="p")
        modal.classList.remove('hide')
 }
 else if(event.target.tagName.toLowerCase()=='span'){
-    console.log("hello");
     modal.style.display="none"
 }
 else{
@@ -83,7 +109,6 @@ complete=()=>{
     setTimeout(()=>{
         modalAlert.classList.remove('modalAnime')
     },2000)
-    // console.log(event);
     event.target.style.color="black"
     if(event.target.tagName.toLowerCase()=="p"){
         event.target.parentNode.style.backgroundColor="lightgreen"
@@ -91,6 +116,13 @@ complete=()=>{
             event.target.parentNode.remove()
         },2000)
         completeBtn.removeEventListener('click',complete)
+        const fetchedLists=[...JSON.parse(localStorage.getItem('todoTasks'))]
+        fetchedLists.forEach(val=>{
+            if(val.todotask==event.target.innerText){
+                fetchedLists.splice(fetchedLists.indexOf(val),1)
+            }
+        })
+      localStorage.setItem('todoTasks',JSON.stringify(fetchedLists))
     }
     else{
         event.target.style.backgroundColor="lightgreen"
@@ -98,6 +130,13 @@ complete=()=>{
             event.target.remove()
         },2000)
         completeBtn.removeEventListener('click',complete)
+        const fetchedLists=[...JSON.parse(localStorage.getItem('todoTasks'))]
+        fetchedLists.forEach(val=>{
+            if(val.todotask==event.target.children[0].innerText){
+                fetchedLists.splice(fetchedLists.indexOf(val),1)
+            }
+        })
+      localStorage.setItem('todoTasks',JSON.stringify(fetchedLists))
     }
     completeBtn.removeEventListener('click',complete)      
 }
@@ -112,7 +151,6 @@ incomplete=()=>{
     setTimeout(()=>{
         modalAlert.classList.remove('modalAnime')
     },2000)
-    //  console.log(event.target.innerText);
      event.target.style.color='black'
      if(event.target.tagName.toLowerCase()=="p"){
         event.target.parentNode.style.backgroundColor="rgba(234, 47, 5, 0.685)"
@@ -156,14 +194,23 @@ function alertbox(msg,color){
 
 
 boxBtn.addEventListener("click",(event)=>{
+    const fetchedLists=[...JSON.parse(localStorage.getItem('todoTasks'))]
+
     for(let i =0;i<list.length;i++){
         setTimeout(()=>{
             list[i].remove()
-            
         },i*200)
+        fetchedLists.forEach(val=>{
+            fetchedLists.pop()
+        })
     }
     setTimeout(()=>{
         todoContainer[1].style.display="none"
     },list.length*300)
+    
+
+    localStorage.setItem('todoTasks',JSON.stringify(fetchedLists))
 })
+
+
 
